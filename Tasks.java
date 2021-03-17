@@ -10,7 +10,12 @@ public class Tasks
 		//1)
 		//perimeter(args);
 		//2)
-		maxNumber(args);
+		int[] array = new int[args.length];
+		for(int i = 0; i < args.length; i++)
+		{
+			array[i] = Integer.parseInt(args[i]);
+		}
+		maxNumber(array);
 		//3)
 		//diagonal(args);
 	}
@@ -125,8 +130,13 @@ public class Tasks
 	}
 	
 	
-	public static void maxNumber(String[] args)
+	public static String maxNumber(int[] array)
 	{
+		String[] args = new String[array.length];
+		for(int i = 0; i < args.length; i++)
+		{
+			args[i] = Integer.toString(array[i]);
+		}
 		for(int i = 1; i < args.length; i++)
 		{
 			String changer = "";
@@ -142,7 +152,14 @@ public class Tasks
 				}
 			}
 		}
-		System.out.println(Arrays.toString(args));
+		//System.out.println(Arrays.toString(args));
+		String result = "";
+		for(String s : args)
+		{
+			result += s;
+		}
+		System.out.println(result);
+		return result;
 	}
 	
 }
