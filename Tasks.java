@@ -9,8 +9,10 @@ public class Tasks
 	{
 		//1)
 		//perimeter(args);
+		//2)
+		maxNumber(args);
+		//3)
 		//diagonal(args);
-		//maximum(args);
 	}
 	
 	public static void perimeter(String[] args)
@@ -122,86 +124,25 @@ public class Tasks
 		}
 	}
 	
-	public static void maximum(String[] args)
+	
+	public static void maxNumber(String[] args)
 	{
-		String number = "";
-		for(int c = 0; c < args.length; c++)
+		for(int i = 1; i < args.length; i++)
 		{
-			for(int i = c; i < args.length-1; i++)
+			String changer = "";
+			for(int j = 0; j < i; j++)
 			{
-				for(int j = i+1; j < args.length; j++)
+				String num1 = args[i] + args[j];
+				String num2 = args[j] + args[i];
+				if(num2.compareTo(num1) < 0)
 				{
-					String changer = "";
-					if(args[i].length() == args[j].length())
-					{
-						int compare = args[i].compareTo(args[j]);
-						
-						if(compare < 0)
-						{
-							changer = args[i];
-							args[i] = args[j];
-							args[j] = changer;
-						}
-					}
-					else
-					{
-						String added = "";
-						if(args[i].length() < args[j].length())
-						{
-							added += args[i];
-							char max = added.charAt(0);
-							for(int k = 1; k < added.length(); k++)
-							{
-								if(added.charAt(k) > max)
-								{
-									max = added.charAt(k);
-								}
-							}
-							for(int k = 0; k < args[j].length() - added.length(); k++)
-							{
-								added += max;
-							}
-							int compare = added.compareTo(args[j]);
-							if(compare < 0)
-							{
-								changer = args[i];
-								args[i] = args[j];
-								args[j] = changer;
-							}
-						}
-						if(args[i].length() > args[j].length())
-						{
-							added += args[j];
-							char max = added.charAt(0);
-							for(int k = 1; k < added.length(); k++)
-							{
-								if(added.charAt(k) > max)
-								{
-									max = added.charAt(k);
-								}
-							}
-							for(int k = 0; k < args[i].length() - added.length(); k++)
-							{
-								added += max;
-							}
-							int compare = args[i].compareTo(added);
-							if(compare < 0)
-							{
-								changer = args[i];
-								args[i] = args[j];
-								args[j] = changer;
-							}
-						}
-					}
-					
+					changer = args[i] + "";
+					args[i] = args[j] + "";
+					args[j] = changer + "";
 				}
 			}
-			
 		}
-		for(String s : args)
-		{
-			number += s;
-		}
-		System.out.println(number);
+		System.out.println(Arrays.toString(args));
 	}
+	
 }
